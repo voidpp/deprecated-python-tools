@@ -4,7 +4,7 @@ import time
 import subprocess
 from signal import SIGTERM
 
-from tools import SimpleResponse
+from utils import SimpleResponse
 
 class BackgroundProcessHandler(object):
     def __init__(self, command, pid_file, logger):

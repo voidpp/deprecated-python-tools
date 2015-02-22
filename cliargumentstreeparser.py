@@ -1,7 +1,7 @@
 
 import argparse
 
-from tools import Storage
+from utils import Storage
 
 class CLIArgumentsTreeParser(object):
 

@@ -2,7 +2,7 @@
 import json
 from abc import abstractmethod
 
-from tools import Storage
+from utils import Storage
 
 class ConfigBase(object):
     def __init__(self):
@@ -46,6 +46,10 @@ class Config(object):
         self.data = Storage()
         self.file_reader = file_reader
         self.logger = logger
+        self.raw_data = Storage()
+
+    def raw(self):
+        return self.raw_data
 
     def load(self, file_name):
         self.file_name = file_name
@@ -101,7 +105,9 @@ class Config(object):
 
         content = self.file_reader.read_all(self.file_name)
 
-        data = ConfigNode(json.loads(content))
+        self.raw_data = json.loads(content)
+
+        data = ConfigNode(self.raw_data)
 
         def iter(node):
             for name in node:

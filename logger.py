@@ -26,4 +26,3 @@ def get_logger(config_file_name, name):
     sys.stdout = StdWriter(logger, logging.WARNING)
 
     return logger
-
