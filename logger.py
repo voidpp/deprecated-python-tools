@@ -13,11 +13,7 @@ class StdWriter(object):
         self.logger.log(self.level, text)
 
 
-def get_logger(config_file_name, name):
-    with open(config_file_name) as f:
-        content = f.read()
-    config_data = json.loads(content)
-
+def get_logger(config_data, name):
     logging.config.dictConfig(config_data)
 
     logger = logging.getLogger(name)
